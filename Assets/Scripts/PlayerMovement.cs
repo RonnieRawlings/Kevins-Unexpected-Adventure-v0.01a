@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    // Private fields, only available in this script.
+
     private Rigidbody2D playerRB; // Contains rigidbody2D, enables physics.
     private Animator playerAnim; // Contains Animator, enables animations.
     private int moveSpeed = 2; // Players max velocity.
@@ -13,36 +15,26 @@ public class PlayerMovement : MonoBehaviour
     /// <summary> method <c>Movement</c> Moves player a direction according to related key press. </summary>
     public void Movement()
     {
-        // Checks for key input, moves related direction.
+        Vector3 velocity = Vector3.zero;
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            velocity += transform.up;
+        }
+        if (Input.GetKey(KeyCode.S))
+        {
+            velocity += -transform.up;
+        }
         if (Input.GetKey(KeyCode.A))
         {
-            playerRB.velocity = Vector3.left * moveSpeed; // Moves player to the left.
+            velocity += -transform.right;
         }
-        else
+        if (Input.GetKey(KeyCode.D))
         {
-            if (Input.GetKey(KeyCode.D))
-            {
-                playerRB.velocity = Vector3.right * moveSpeed; // Moves player to the right.
-            }
-            else
-            {
-                if (Input.GetKey(KeyCode.W))
-                {
-                    playerRB.velocity = Vector3.up * moveSpeed; // Moves player up.
-                }
-                else
-                {
-                    if (Input.GetKey(KeyCode.S))
-                    {
-                        playerRB.velocity = Vector3.down * moveSpeed; // Moves player down.
-                    }
-                    else
-                    {
-                        playerRB.velocity = Vector3.zero; // Resets player velocity, prevents movement.
-                    }
-                }                               
-            }                       
+            velocity += transform.right;
         }
+        
+        playerRB.velocity = velocity.normalized * moveSpeed;        
     }
 
     /// <summary> method <c>PlayAnimation</c> Plays a specific animation, depending on direction moving. </summary>

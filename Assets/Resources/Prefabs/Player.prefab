@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4533163780590513817}
   - component: {fileID: 4533163780590513764}
   - component: {fileID: 4533163780590513767}
+  - component: {fileID: 7275553556745928010}
   - component: {fileID: 1485888434011508970}
   m_Layer: 0
   m_Name: Player
@@ -124,6 +125,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &7275553556745928010
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4533163780590513816}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5480ce82689eba74a9a1a14dcc2d4aab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1485888434011508970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,4 +157,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d752f516e08a38043af4fdc9e0acddc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8

@@ -47,6 +47,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerAnim.Play("PlayerWalk (Diagonal UpRight)");
             }
+            else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+            {
+                playerAnim.Play("PlayerWalk (Diagonal UpLeft)");
+            }
             else if (Input.GetKey(KeyCode.A))
             {
                 playerAnim.Play("PlayerWalk (Left)"); // Plays left walk animation.
@@ -61,11 +65,11 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (Input.GetKey(KeyCode.W))
                     {
-                        playerAnim.Play("PlayerWalk (Front)"); // Plays forward walk animation.
+                        playerAnim.Play("PlayerWalk (Back)"); // Plays forward walk animation.
                     }
                     else
                     {
-                        playerAnim.Play("PlayerWalk (Back)"); // Plays backwards walk animation.
+                        playerAnim.Play("PlayerWalk (Front)"); // Plays backwards walk animation.
                     }
                 }
             }          
@@ -74,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerAnim.Play("PlayerIdle (Front)"); // Plays PlayerIdle animation.
+            
         }
     }
 

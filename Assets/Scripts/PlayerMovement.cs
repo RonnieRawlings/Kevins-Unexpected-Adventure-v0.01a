@@ -43,19 +43,23 @@ public class PlayerMovement : MonoBehaviour
         // Checks which direction player moving, plays relevent animation.
         if (playerRB.velocity != Vector2.zero)
         {
-            if (playerRB.velocity.x < 0f)
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+            {
+                playerAnim.Play("PlayerWalk (Diagonal UpRight)");
+            }
+            else if (Input.GetKey(KeyCode.A))
             {
                 playerAnim.Play("PlayerWalk (Left)"); // Plays left walk animation.
             }
             else
             {
-                if (playerRB.velocity.x > 0f)
+                if (Input.GetKey(KeyCode.D))
                 {
                     playerAnim.Play("PlayerWalk (Right)"); // Plays right walk animation.
                 }
                 else
                 {
-                    if (playerRB.velocity.y < 0f)
+                    if (Input.GetKey(KeyCode.W))
                     {
                         playerAnim.Play("PlayerWalk (Front)"); // Plays forward walk animation.
                     }

@@ -55,6 +55,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 playerAnim.Play("PlayerWalk (Diagonal DownLeft)");
             }
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+            {
+                playerAnim.Play("Player Walk (Diagonal DownRight)");
+            }
             else if (Input.GetKey(KeyCode.A))
             {
                 playerAnim.Play("PlayerWalk (Left)"); // Plays left walk animation.

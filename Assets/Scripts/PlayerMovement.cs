@@ -43,25 +43,41 @@ public class PlayerMovement : MonoBehaviour
         // Checks which direction player moving, plays relevent animation.
         if (playerRB.velocity != Vector2.zero)
         {
-            if (playerRB.velocity.x < 0f)
+            if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.D))
+            {
+                playerAnim.Play("PlayerWalk (Diagonal UpRight)");
+            }
+            else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.A))
+            {
+                playerAnim.Play("PlayerWalk (Diagonal UpLeft)");
+            }
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.A))
+            {
+                playerAnim.Play("PlayerWalk (Diagonal DownLeft)");
+            }
+            else if (Input.GetKey(KeyCode.S) && Input.GetKey(KeyCode.D))
+            {
+                playerAnim.Play("Player Walk (Diagonal DownRight)");
+            }
+            else if (Input.GetKey(KeyCode.A))
             {
                 playerAnim.Play("PlayerWalk (Left)"); // Plays left walk animation.
             }
             else
             {
-                if (playerRB.velocity.x > 0f)
+                if (Input.GetKey(KeyCode.D))
                 {
                     playerAnim.Play("PlayerWalk (Right)"); // Plays right walk animation.
                 }
                 else
                 {
-                    if (playerRB.velocity.y < 0f)
+                    if (Input.GetKey(KeyCode.W))
                     {
-                        playerAnim.Play("PlayerWalk (Front)"); // Plays forward walk animation.
+                        playerAnim.Play("PlayerWalk (Back)"); // Plays forward walk animation.
                     }
                     else
                     {
-                        playerAnim.Play("PlayerWalk (Back)"); // Plays backwards walk animation.
+                        playerAnim.Play("PlayerWalk (Front)"); // Plays backwards walk animation.
                     }
                 }
             }          
@@ -70,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerAnim.Play("PlayerIdle (Front)"); // Plays PlayerIdle animation.
+            
         }
     }
 
